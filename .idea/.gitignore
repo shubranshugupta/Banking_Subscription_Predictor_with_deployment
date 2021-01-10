@@ -2,6 +2,6 @@
 /shelf/
 /workspace.xml
 /.ipynb_checkpoints
-.iml
+*.iml
 /.idea
 /Data
