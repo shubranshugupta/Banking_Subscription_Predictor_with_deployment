@@ -1,0 +1,516 @@
+@import url(https://fonts.googleapis.com/css?family=Tangerine);
+/* default settings */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    min-height: 1200px;
+    min-width: auto;
+    z-index: -1;
+}
+
+
+/* background image  */
+#backgroundImg{
+    background-size: 100% 100%;
+    -webkit-filter:blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(2px);
+    position: fixed;
+    
+}
+
+/* navigation bar setting */
+
+#navbar {
+    display: inline-block;
+    align-items: center;
+    position:absolute;
+    background: rgba(30, 30, 30, 0.960);
+    width: 100%;
+    height: 10%;
+    border-bottom: 2px solid rgba(70, 70, 70, 0.96);
+    opacity: 0.9;
+}
+
+/* navigation bar: logo and img */
+
+#logo {
+    position: absolute;
+    height: 100%;
+    width: 6%;
+    left: 4%;
+}
+
+#logo img {
+    margin-top: 6%;
+    height: 85%;
+    width: 95%;
+    filter: brightness(130%);
+}
+
+/* navigation bar: logo and img */
+
+#navbar h1 {
+    position: absolute;
+    left: 12%;
+    height: 87%;
+    width: 80%;
+    font-size: 2.7vw;
+    color: rgb(248, 248, 248);
+    text-align: center;
+}
+
+/* div input  */
+
+#input {
+    display: grid;
+    background: rgba(40, 40, 40, 0.960);
+    height: 125%;
+    width: 55%;
+    position: absolute;
+    border-radius: 20px;
+    top: 14.32%;
+    left: 22%;
+    font-family: Arial, sans-serif;
+    opacity: 0.9;
+}
+
+#input h1 {
+    position: absolute;
+    font-size: 2vw;
+    color: rgb(214, 214, 214);
+    padding-left: 33%;
+}
+
+#input h2 {
+    color: rgb(207, 207, 207);
+    text-align: left;
+    position: absolute;
+    font-size: 1.6vw;
+    padding-left: 2%;
+}
+
+/* heading1 */
+
+#detail1 {
+    top: 4%;
+}
+
+/* span and input global value */
+
+.span {
+    font-size: 1.3vw;
+    color: rgb(214, 214, 214);
+    padding-left: 4%;
+    text-align: center;
+}
+
+.inputType1:focus {
+    outline: none;
+}
+
+.inputType1 {
+    background-color: rgba(82, 82, 82, 0.96);
+    color: rgb(160, 160, 160);
+    border-color: rgba(121, 121, 121, 0.96);
+    font-size: 1vw;
+    border-radius: 7px;
+    width: 20%;
+    text-align: center;
+}
+
+.inputType2 {
+    background-color: rgba(82, 82, 82, 0.96);
+    color: rgb(160, 160, 160);
+    border-color: rgba(121, 121, 121, 0.96);
+    font-size: 1.1vw;
+    border-radius: 3px;
+    width: 20%;
+    text-align: center;
+}
+
+.inputType1:hover {
+    background-color: rgba(100, 100, 100, 0.96);
+    color: rgb(97, 211, 231);
+}
+
+.inputType2:hover {
+    background-color: rgba(100, 100, 100, 0.96);
+    color: rgb(97, 211, 231);
+}
+
+/* age form */
+
+#class1 {
+    position: absolute;
+    top: 9%;
+    left: 2%;
+    width: 85%;
+}
+
+#span1 {
+    margin-right: 12.4%;
+}
+
+/* job form */
+
+#class2 {
+    position: absolute;
+    top: 12.3%;
+    left: 2%;
+    width: 85%;
+}
+
+#span2 {
+    margin-right: 24%;
+}
+
+/* marital form */
+
+#class3 {
+    position: absolute;
+    top: 15.3%;
+    left: 2%;
+    width: 85%;
+}
+
+#span3 {
+    margin-right: 20%;
+}
+
+/* education form */
+
+#class4 {
+    position: absolute;
+    top: 18.3%;
+    left: 2%;
+    width: 85%;
+}
+
+#span4 {
+    margin-right: 16%;
+}
+
+/* default form */
+
+#class5 {
+    position: absolute;
+    top: 21.2%;
+    left: 2%;
+    width: 85%;
+}
+
+#span5 {
+    margin-right: 4%;
+}
+
+/* heading2 */
+
+#detail2 {
+    top: 24%;
+}
+
+/* communication form */
+
+#class6 {
+    position: absolute;
+    top: 28.5%;
+    left: 2%;
+    width: 85%;
+}
+
+#span6 {
+    margin-right: 14.8%;
+}
+
+/* month form */
+
+#class7 {
+    position: absolute;
+    top: 31.3%;
+    left: 2%;
+    width: 85%;
+}
+
+#span7 {
+    margin-right: 13.5%;
+}
+
+/* day form */
+
+#class8 {
+    position: absolute;
+    top: 34.1%;
+    left: 2%;
+    width: 85%;
+}
+
+#span8 {
+    margin-right: 17%;
+}
+
+/* duration form */
+
+#class9 {
+    position: absolute;
+    top: 36.9%;
+    left: 2%;
+    width: 85%;
+}
+
+#span9 {
+    margin-right: 4%;
+}
+
+/* heading3 */
+
+#detail3 {
+    top: 40%;
+}
+
+/* campaign form */
+
+#class10 {
+    position: absolute;
+    top: 45%;
+    left: 2%;
+    width: 85%;
+}
+
+#span10 {
+    margin-right: 7%;
+}
+
+/* pday form */
+
+#class11 {
+    position: absolute;
+    top: 48%;
+    left: 2%;
+    width: 85%;
+}
+
+#span11 {
+    margin-right: 19.3%;
+}
+
+/* previous form */
+
+#class12 {
+    position: absolute;
+    top: 51%;
+    left: 2%;
+    width: 85%;
+}
+
+#span12 {
+    margin-right: 4%;
+}
+
+/* poutcome form */
+
+#class13 {
+    position: absolute;
+    top: 54.2%;
+    left: 2%;
+    width: 85%;
+}
+
+#span13 {
+    margin-right: 28.6%;
+}
+
+/* heading4 */
+
+#detail4 {
+    top: 57%;
+}
+
+/* emp.var.rate form */
+
+#class14 {
+    position: absolute;
+    top: 62%;
+    left: 2%;
+    width: 85%;
+}
+
+#span14 {
+    margin-right: 5.8%;
+}
+
+/* cons.price.idx form */
+
+#class15 {
+    position: absolute;
+    top: 65%;
+    left: 2%;
+    width: 85%;
+}
+
+#span15 {
+    margin-right: 11.8%;
+}
+
+/* cons.conf.idx form */
+
+#class16 {
+    position: absolute;
+    top: 68.1%;
+    left: 2%;
+    width: 85%;
+}
+
+#span16 {
+    margin-right: 4%;
+}
+
+/* button global setting */
+
+.button1 {
+    cursor: pointer;
+    position: absolute;
+    border-radius: 8px;
+    background-color: #26A2FF;
+    color: rgb(241, 241, 241);
+}
+
+.button1:hover {
+    background-color: #49b0ff;
+}
+
+/* choose file setting */
+
+#class17 {
+    position: absolute;
+    top: 73.4%;
+    width: 90%;
+    height: 6%;
+}
+
+#span17 {
+    margin-right: 0%;
+    font-size: 1.5vw;
+}
+
+#filebutton {
+    left: 44%;
+    top: 63%;
+    font-size: 1.2vw;
+    padding: 0.5% 1% 0.5% 1%;
+}
+
+input[type="file"] {
+    position: absolute;
+    top: 65%;
+    font-size: 0.2vw;
+    left: 45%;
+    z-index: -1;
+    color: rgba(40, 40, 40, 0.960);
+    outline: 0;
+    height: 6%;
+}
+
+/* submit button setting */
+
+#class18 {
+    position: absolute;
+    top: 81.8%;
+    left: 42%;
+    width: 50%;
+}
+
+#submitbutton {
+    font-size: 1.2vw;
+    text-align: center;
+    padding: 1% 1.5% 1% 1.5%;
+}
+
+input[type="button"] {
+    position: absolute;
+    font-size: 1.2vw;
+    z-index: -1;
+    left: 2%;
+}
+
+/* output value  */
+
+#class19 {
+    position: absolute;
+    top: 87%;
+    left: 29%;
+    width: 35%;
+    height: 11%;
+    background-color: rgba(82, 82, 82, 0.96);
+    border-radius: 15px;
+}
+
+#output {
+    position: absolute;
+    top: 6%;
+    left: 4%;
+    width: 93%;
+    color: #EC1988;
+    font-size: 1.1vw;
+}
+
+/* notes screen  */
+
+.notes {
+    display: grid;
+    width: 20%;
+    position: fixed;
+    font-family: Arial, sans-serif;
+    color: #b8b8b8;
+    text-align: justify;
+    padding: 1%;
+    font-size: 1.05vw;
+}
+
+#note1 {
+    top: 15%;
+}
+
+#note2 {
+    top: 27.5%;
+}
+
+#note3 {
+    top: 34.3%;
+}
+
+#note4 {
+    top: 47%;
+}
+
+#note5 {
+    top: 60%;
+}
+
+#note6 {
+    top: 67%;
+}
+
+#note7 {
+    top: 15%;
+    left: 77%;
+    height: 60%;
+    width: 21%;
+}
+
+table, td, th {
+    color: #a3a3a3;
+    border: 2px solid rgb(0, 139, 139);
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.impTable {
+    border-collapse: collapse;
+}

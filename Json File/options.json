@@ -1,0 +1,7 @@
+{
+"job":["admin.","blue-collar","entrepreneur","housemaid","management","retired","self-employed","services","student","technician","unemployed","unknown"],
+"marital":["single","married","divorced","unknown"],
+"education":["unknown", "illiterate", "high.school", "university.degree", "professional.course", "basic.4y", "basic.6y", "basic.9y"],
+"month":["mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"],
+"day_of_week":["mon","tue","wed","thu","fri"]
+}

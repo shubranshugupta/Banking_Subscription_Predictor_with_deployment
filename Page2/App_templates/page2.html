@@ -1,0 +1,37 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Subscription</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/subscription.png') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('app.static', filename='page2.css') }}">
+</head>
+
+<body>
+    <img src="{{ url_for('static', filename='images/cool-background.png') }}" alt="" id="backgroundImg">
+
+    <nav id="navbar">
+        <div id="logo">
+            <img src="{{ url_for('static', filename='images/icon.png') }}" alt="Banking Subscription">
+        </div>
+        <h1 class="head">Banking Subscription Predictor</h1>
+    </nav>
+
+    <div id="tables">
+    </div>
+
+    <form id="downloadbutton">
+        <label for="downloadbuttoninput" id="downloadbuttonlabel" onclick="getCSV()">Download</label>
+        <input type="button" id="downloadbuttoninput">
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ url_for('app.static', filename='page2.js') }}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Subscription</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/subscription.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dark.css') }}">
+</head>
+
+
+<body>
+    <div>
+        <img src="{{ url_for('static', filename='images/cool-background.png') }}" alt="" id="backgroundImg">
+
+        <nav id="navbar">
+            <div id="logo">
+                <img src="{{ url_for('static', filename='images/icon.png') }}" alt="Banking Subscription">
+            </div>
+            <h1 class="head">Banking Subscription Predictor</h1>
+        </nav>
+
+        <div id="input">
+            <h1>Please Enter Details</h1>
+            <h2 id="detail1">i. Client Detail</h2>
+            <form id="class1">
+                <span class="span" id="span1">1. Age (in year): </span>
+                <input class="inputType1" type="text" value="" autofocus id="input1">
+            </form>
+
+            <form id="class2">
+                <span class="span" id="span2">2. Job: </span>
+                <select class="inputType2" id="input2">
+                    <!-- <option selected="selected">Choose Job</option> -->
+                </select>
+            </form>
+
+            <form id="class3">
+                <span class="span" id="span3">3. Marital: </span>
+                <select class="inputType2" id="input3">
+                    <!-- <option selected="selected">Choose Marital</option> -->
+                </select>
+            </form>
+
+            <form id="class4">
+                <span class="span" id="span4">4. Education: </span>
+                <select class="inputType2" id="input4">
+                    <!-- <option selected="selected">Choose Education</option> -->
+                </select>
+            </form>
+
+            <form id="class5">
+                <span class="span" id="span5">5. Has Default Credit?: </span>
+                <select class="inputType2" id="input5">
+                    <option selected="selected">No</option>
+                    <option>Yes</option>
+                    <option>Unknown</option>
+                </select>
+            </form>
+
+            <h2 id="detail2">ii. Contact to Client</h2>
+
+            <form id="class6">
+                <span class="span" id="span6">6. Communication type: </span>
+                <select class="inputType2" id="input6">
+                    <option selected="selected">Cellular</option>
+                    <option>Telephone</option>
+                </select>
+            </form>
+
+            <form id="class7">
+                <span class="span" id="span7">7. Last month of contact: </span>
+                <select class="inputType2" id="input7">
+                    <!-- <option selected="selected">Choose Month</option> -->
+                </select>
+            </form>
+
+            <form id="class8">
+                <span class="span" id="span8">8. Last day of contact: </span>
+                <select class="inputType2" id="input8">
+                    <!-- <option selected="selected">Choose Day</option> -->
+                </select>
+            </form>
+
+            <form id="class9">
+                <span class="span" id="span9">9. Last contact duration (in sec): </span>
+                <input class="inputType1" type="text" value="" id="input9">
+            </form>
+
+            <h2 id="detail3">iii. Campaign Detail</h2>
+
+            <form id="class10">
+                <span class="span" id="span10">10. Number of contact perform during this campaign: </span>
+                <input class="inputType1" type="text" value="" id="input10">
+            </form>
+
+            <form id="class11">
+                <span class="span" id="span11">11. Number of days pass after last contact: </span>
+                <input class="inputType1" type="text" value="" id="input11">
+            </form>
+
+            <form id="class12">
+                <span class="span" id="span12">12. Number of contact perform previous this campaign: </span>
+                <input class="inputType1" type="text" value="" id="input12">
+            </form>
+
+            <form id="class13">
+                <span class="span" id="span13">13. Outcome of previous campaign: </span>
+                <select class="inputType2" id="input13">
+                    <option selected="selected">Failure</option>
+                    <option>Nonexistent</option>
+                    <option>Success</option>
+                </select>
+            </form>
+
+            <h2 id="detail4">iv. Company Social and Economic context</h2>
+
+            <form id="class14">
+                <span class="span" id="span14">14. Employment Variation Rate: </span>
+                <input class="inputType1" type="text" value="" id="input14">
+            </form>
+
+            <form id="class15">
+                <span class="span" id="span15">15. Consumer Price Index: </span>
+                <input class="inputType1" type="text" value="" id="input15">
+            </form>
+
+            <form id="class16">
+                <span class="span" id="span16">16. Consumer Confidence Index: </span>
+                <input class="inputType1" type="text" value="" id="input16">
+            </form>
+
+            <form id="class17">
+                <p id="span17" class="span">If you have csv, excel file then click 'Choose File'</p>
+                <label for="button1" class="button1" id="filebutton">Choose File</label>
+                <input type="file" id="button1" accept=".csv, .xlsx" oninput="showFileName(), changeSumitbuttonFunction()">
+            </form>
+
+            <form id="class18">
+                <label for="button2" class="button1" id="submitbutton" onclick="postToServer(formInput())">Submit</label>
+                <input type="button" id="button2">
+            </form>
+
+            <form id="class19">
+                <output id="output"></output>
+            </form>
+        </div>
+
+        <div id="note1" class="notes">
+            <p><strong style="color: #b90000;">Note 1: </strong>CONTACT DETAIL section is
+                related with the last contact of the current campaign.
+                Put DURATION as 0 when client is not contacted.
+            </p>
+        </div>
+
+        <div id="note2" class="notes">
+            <p><strong style="color:#b90000;">Note 2: </strong>In LINE <b>11</b> if client not
+                contacted then write <b>999</b>.
+            </p>
+        </div>
+
+        <div id="note3" class="notes">
+            <p><strong style="color: #b90000;">Note 3: </strong><br>
+                &nbsp&nbsp<b>14</b> --> Quarterly Indicator<br>
+                &nbsp&nbsp<b>15</b> --> Monthly Indicator<br>
+                &nbsp&nbsp<b>16</b> --> Monthly Indicator<br>
+            </p>
+        </div>
+
+        <div id="note4" class="notes">
+            <p><strong style="color:#b90000;">Note 4: </strong>In <b>Note 5,</b>
+                <b>Sr. No.</b> represent the element with this number in form. Column name
+                in file should be same as mention in <b>Note 5</b>.
+            </p>
+        </div>
+
+        <div id="note5" class="notes">
+            <p><strong style="color:#b90000;">Note 5: </strong>You can copy element
+                from <b>Column Name</b> by clicking on it.
+            </p>
+        </div>
+
+        <div id="note6" class="notes">
+            <p><strong style="color:#b90000;">Note 6: </strong>If you choose one file then <b>Choose Button</b> 
+                will be disable until you press <b>Submit Buttton</b>.
+            </p>
+        </div>
+
+        <div id="note7" class="notes">
+            <p style="height: 30%"><strong style="color: #b90000;">Note 7: </strong>
+                If you are uploding file then following condition should satisfy
+            </p>
+            <table class="impTable">
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Column Name</th>
+                    <th>Data Type</th>
+                </tr>
+                <tr>
+                    <td scope="row">1</td>
+                    <td onclick="copyToClipboard('age')" id="age">age</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">2</td>
+                    <td onclick="copyToClipboard('job')" id="job">job</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">3</td>
+                    <td onclick="copyToClipboard('marital')" id="marital">marital</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">4</td>
+                    <td onclick="copyToClipboard('education')" id="education">education</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">5</td>
+                    <td onclick="copyToClipboard('default')" id="default">default</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">6</td>
+                    <td onclick="copyToClipboard('contact')" id="contact">contact</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">7</td>
+                    <td onclick="copyToClipboard('month')" id="month">month</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">8</td>
+                    <td onclick="copyToClipboard('day_of_week')" id="day_of_week">day_of_week</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">9</td>
+                    <td onclick="copyToClipboard('duration')" id="duration">duration</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">10</td>
+                    <td onclick="copyToClipboard('campaign')" id="campaign">campaign</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">11</td>
+                    <td onclick="copyToClipboard('pdays')" id="pdays">pdays</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">12</td>
+                    <td onclick="copyToClipboard('previous')" id="previous">previous</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">13</td>
+                    <td onclick="copyToClipboard('poutcome')" id="poutcome">poutcome</td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td scope="row">14</td>
+                    <td onclick="copyToClipboard('emp.var.rate')" id="emp.var.rate">emp.var.rate</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">15</td>
+                    <td onclick="copyToClipboard('cons.price.idx')" id="cons.price.idx">cons.price.idx</td>
+                    <td>numerical</td>
+                </tr>
+                <tr>
+                    <td scope="row">16</td>
+                    <td onclick="copyToClipboard('cons.conf.idx')" id="cons.conf.idx">cons.conf.idx</td>
+                    <td>numerical</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='client.js') }}"></script>
+</body>
+
+</html>
