@@ -1,0 +1,5 @@
+/.idea
+/Data
+/.ipynb_checkpoints
+/ML Model/Data
+*.log
