@@ -1,7 +1,7 @@
 /.idea
-/Data
 /.ipynb_checkpoints
 /ML Model/Data
 *.log
 /ML Model/.virtual_documents/Banking_Subscription_predictor.ipynb.py
 /ML Model/.ipynb_checkpoints/Banking_Subscription_predictor-checkpoint.ipynb
+*.csv
