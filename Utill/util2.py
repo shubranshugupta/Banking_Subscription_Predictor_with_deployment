@@ -6,7 +6,7 @@ import pandas as pd
 from Utill import util1
 from bs4 import BeautifulSoup
 
-global df_org, df_modify, __model, file_name
+global df_org, df_modify, __model_cat, file_name
 file_path1 = "Data/File to save"
 file_path2 = "Data/File to send"
 file_path3 = "Data/Html file"
@@ -93,10 +93,10 @@ def df_transform():
 
 
 def predict_file():
-    global __model, df_org, df_modify
-    __model = util1.get_model()
+    global df_org, df_modify, __model_cat
+    __model_cat = util1.get_model()
     pred_dict = {0: "Not Subscribed", 1: "Subscribed"}
-    pred = __model.predict(df_modify)
+    pred = __model_cat.predict(df_modify)
     df_org["Prediction"] = pd.Series(pred).map(pred_dict)
     df_modify["y"] = pred
 

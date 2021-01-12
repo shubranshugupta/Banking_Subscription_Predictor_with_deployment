@@ -1,4 +1,4 @@
-from flask import send_from_directory, abort, render_template, Blueprint, current_app, jsonify, url_for
+from flask import send_from_directory, abort, render_template, Blueprint, current_app, jsonify
 from Utill import util2
 
 app = Blueprint("app", __name__, static_folder='App_static', template_folder='App_templates')

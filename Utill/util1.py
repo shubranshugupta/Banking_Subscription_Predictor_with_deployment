@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 global job_arr
-__model = None
+__model_cat = None
 __data_for_page = None
 
 marital_arr = np.array(["married", "single", "unknown"])
@@ -19,17 +19,17 @@ pout_dict = {"failure":0, "nonexistent":1, "success":2}
 
 def load_file():
     path1 = "Json File/options.json"
-    path2 = "ML model/model.pkl"
-    global __data_for_page, __model, job_arr, marital_arr
+    path2_cat = "ML model/Catboost.pkl"
+    global __data_for_page, __model_cat, job_arr, marital_arr
     global month_arr, day_arr
 
     with open(path1, "r") as f:
         __data_for_page = json.load(f)
         job_arr = np.array(__data_for_page["job"][1:])
 
-    if __model is None:
-        with open(path2, "rb") as f:
-            __model = pickle.load(f)
+    if __model_cat is None:
+        with open(path2_cat, "rb") as f:
+            __model_cat = pickle.load(f)
 
 
 def get_data_for_page():
@@ -63,18 +63,18 @@ def dummy_str_var(arr_from_client):
 
 
 def predict_val(arr):
-    pred = __model.predict([arr])[0]
-    arr.append(pred)
+    pred = __model_cat.predict([arr])
+    arr.append(pred[0])
     df1 = pd.read_csv("Data/File to save/data_by_form.csv")
     df1.loc[len(df1.index)] = arr
     duplicate = df1[df1.duplicated(keep='first')]
     df1.drop(duplicate.index, inplace=True)
-    df1.to_csv("Data/File to save/data_by_form.csv", index=False)
+    df1.to_csv(r"Data/File to save/data_by_form.csv", index=False)
     return str(pred)
 
 
 def get_model():
-    return __model
+    return __model_cat
 
 
 # if __name__ == "__main__":
