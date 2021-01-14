@@ -69,15 +69,15 @@ function changeSumitbuttonFunction() {
 function forFileSubmit() {
     let data = new FormData();
     let file = document.getElementById("button1").files[0];
-    if(file.name.endsWith('.csv')){
+    if (file.name.endsWith('.csv')) {
         data.append('file', file);
         data.append('file_name', file.name);
     }
-    else if (file.name.endsWith('.xlsx')){
+    else if (file.name.endsWith('.xlsx')) {
         data.append('file', file);
         data.append('file_name', file.name);
     }
-    else{
+    else {
         data = null;
         document.getElementById("output").innerHTML = "Please Enter Proper file.";
     }
@@ -122,19 +122,26 @@ function postToServer(varTopost) {
         let data = JSON.stringify({ "data": varTopost });
         xhr.send(data);
     }
-    else if(varTopost instanceof FormData){
+    else if (varTopost instanceof FormData) {
         let xhr = new XMLHttpRequest();
         let url = "/predict_csv";
         xhr.open('POST', url, true);
         xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
         xhr.send(varTopost);
-        xhr.onreadystatechange = function (){
-            if(xhr.readyState === 4 && xhr.status === 200){
-                location.replace(JSON.parse(this.responseText)['redirect']);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let varOnParse = JSON.parse(this.responseText)['redirect'];
+                if (varOnParse === undefined) {
+                    document.getElementById("output").innerHTML = JSON.parse(this.responseText)['error'];
+                    setTimeout(clear, 4000);
+                }
+                else{
+                    location.replace(JSON.parse(this.responseText)['redirect']);
+                }
             }
         }
     }
-    else{
+    else {
         console.log("not working");
     }
 }

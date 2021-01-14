@@ -50,10 +50,11 @@ def predict_csv():
             util2.predict_file()
             util2.save_file()
             return jsonify({'redirect': "app/predict_csv_result"})
+        util2.delete_file()
         return jsonify({'error': var})
 
 
 if __name__ == '__main__':
     client.config['TEMPLATES_AUTO_RELOAD'] = True
     util1.load_file()
-    client.run(host='127.0.0.1', port='300', debug=True)
+    client.run(host='0.0.0.0', port='300')

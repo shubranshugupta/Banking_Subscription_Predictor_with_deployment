@@ -2,6 +2,7 @@ import pickle
 import json
 import numpy as np
 import pandas as pd
+import os
 
 global job_arr
 __model_cat = None
@@ -18,8 +19,8 @@ pout_dict = {"failure":0, "nonexistent":1, "success":2}
 
 
 def load_file():
-    path1 = "Json File/options.json"
-    path2_cat = "ML model/Catboost.pkl"
+    path1 = "Imp_File/options.json"
+    path2_cat = "ML_Model/Catboost.pkl"
     global __data_for_page, __model_cat, job_arr, marital_arr
     global month_arr, day_arr
 
@@ -30,6 +31,18 @@ def load_file():
     if __model_cat is None:
         with open(path2_cat, "rb") as f:
             __model_cat = pickle.load(f)
+
+    if not os.path.isdir("Data"):
+        os.mkdir("Data")
+    if not os.path.isdir("Data/File to save"):
+        os.mkdir("Data/File to save")
+        with open("Imp_File/data_by_form.txt", "r") as f1, open("Data/File to save/data_by_form.csv", "a") as f2:
+            for line in f1:
+                f2.write(line)
+    if not os.path.isdir("Data/File to send"):
+        os.mkdir("Data/File to send")
+    if not os.path.isdir("Data/Html file"):
+        os.mkdir("Data/Html file")
 
 
 def get_data_for_page():
