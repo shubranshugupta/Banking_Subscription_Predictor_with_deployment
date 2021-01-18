@@ -46,7 +46,7 @@ function formInput() {
     consPrice == "" ? consPrice = parseFloat("93.575") : parseFloat(consPrice);
     let consConf = document.getElementById("input16").value;
     consConf == "" ? consConf = parseFloat("-40.502") : parseFloat(consConf);
-
+    
     return new Array(age, duration, campaign, pday, previous, empVar, consPrice, consConf,
         job, marital, default1, contact, month, week, education, poutcome);
 }
@@ -60,7 +60,7 @@ function showFileName() {
 }
 
 
-// function to change submit button function
+// function to change submit button function when file is uploaded
 function changeSumitbuttonFunction() {
     document.getElementById("submitbutton").onclick = function () { postToServer(forFileSubmit()); };
 }

@@ -6,6 +6,13 @@ import pandas as pd
 from Utill import util1
 from bs4 import BeautifulSoup
 
+'''
+This module contain all function that do data transformation and
+prediction of Data pass in the form of csv file or excel file by
+user.
+'''
+
+
 global df_org, df_modify, __model_cat, file_name
 file_path1 = "Data/File to save"
 file_path2 = "Data/File to send"
@@ -15,10 +22,18 @@ default_val_for_nan = {"age": 40, "job": "admin.", "marital": "married", "educat
                        "duration": 999, "campaign": 2.57, "pdays": 962.47, "previous": 0.173, "poutcome": "nonexistent",
                        "emp.var.rate": 0.0818, "cons.price.idx": 93.575, "cons.conf.idx": -40.502}
 
-util1.load_file()
+# it use to check whether model is loaded or not
+if util1.__model_cat is None:
+    util1.load_file()
 
 
 def get_dummy():
+    """
+    This function is use to make dummy var and check whether column names
+    is correct or not
+    :return: object of DataFrame
+    """
+
     global df_modify
     dummy_col_lst = (
         "job_blue-collar", "job_entrepreneur", "job_housemaid", "job_management", "job_retired", "job_self-employed",
@@ -43,6 +58,10 @@ def get_dummy():
 
 
 def get_mapped():
+    """
+    This function is used to map ordinal columns
+    """
+
     global df_modify
     edu = util1.edu_dict
     pout = util1.pout_dict
@@ -51,6 +70,13 @@ def get_mapped():
 
 
 def get_file(file_name_server):
+    """
+    This function is use to read csv or excel file and check whether
+    column name of file is correct or not
+    :param file_name_server: name of file that save in Data/File to send folder
+    :return: Return None if column name are correct else return string
+    """
+
     global df_org, df_modify, file_name
     idx_arr = np.array(['age', 'job', 'marital', 'education', 'default', 'contact', 'month',
                         'day_of_week', 'duration', 'campaign', 'pdays', 'previous', 'poutcome',
@@ -67,6 +93,12 @@ def get_file(file_name_server):
 
 
 def df_transform():
+    """
+    This function is use to do all type of data transformation and
+    fill nan value with default value and make final DataFrame to
+    predict subscription and df store in df_modify
+    """
+
     global df_modify, df_org, default_val_for_nan
 
     if df_org.isnull().sum().sum() > 0:
@@ -93,8 +125,13 @@ def df_transform():
 
 
 def predict_file():
+    """
+    This function is use to predict the whether person will
+    subscribe or not
+    """
+
     global df_org, df_modify, __model_cat
-    __model_cat = util1.get_model()
+    __model_cat = util1.__model_cat
     pred_dict = {0: "Not Subscribed", 1: "Subscribed"}
     pred = __model_cat.predict(df_modify)
     df_org["Prediction"] = pd.Series(pred).map(pred_dict)
@@ -102,6 +139,14 @@ def predict_file():
 
 
 def save_file():
+    """
+    This function is use to save DataFrame in different form in folder
+    csv --> df_modified is save in Data/File to save for further use
+    csv --> df_org save in Data/File to send to send file to user
+    html --> It is save in Data/Html file is used by return_table function.
+
+    :return:
+    """
     global file_name, df_modify, df_org
     if not file_name.endswith(".csv"):
         os.remove(os.path.join(file_path2, file_name))
@@ -113,6 +158,12 @@ def save_file():
 
 
 def return_table():
+    """
+    This function is use to extract the table from html file store
+    in Data/Html file
+    :return: string
+    """
+
     with open(os.path.join(file_path3, file_name.replace(".csv", ".html")), 'r') as f:
         content = f.read()
         soup = BeautifulSoup(content, 'lxml')
@@ -120,11 +171,23 @@ def return_table():
 
 
 def return_filename():
+    """
+    This function is use to return file name
+    :return: file name
+    """
+
     return file_name
 
 
 def delete_file():
+    """
+    This is use to delete file from Data/File to send
+    and Data/Html file
+    """
+
+    global df_org, df_modify, file_name
     dir_to_delete = [file_path2, file_path3]
+    df_org, df_modify, file_name = None, None, None
     for path1 in dir_to_delete:
         for path2 in os.listdir(path1):
             full_path = os.path.join(path1, path2)

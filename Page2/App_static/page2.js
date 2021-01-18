@@ -13,6 +13,7 @@ function getCSV() {
 }
 
 
+// this function is use to delete file that is not important, from server side
 function deleteFile() {
     let xhr = new XMLHttpRequest();
     let url = "/app/delete_file";
@@ -27,6 +28,7 @@ function deleteFile() {
 }
 
 
+// this function send request to server to get predicted csv file and file get downloaded
 function downloadCSV(file) {
     let blob = new Blob([file]);
     let url = window.URL.createObjectURL(blob);

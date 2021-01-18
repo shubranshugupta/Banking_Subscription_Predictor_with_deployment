@@ -1,23 +1,22 @@
-from flask import send_from_directory, abort, render_template, Blueprint, current_app, jsonify
+from flask import send_from_directory, abort, render_template, Blueprint, current_app, jsonify, url_for
 from Utill import util2
 
 app = Blueprint("app", __name__, static_folder='App_static', template_folder='App_templates')
 
 
-@app.route('/predict_csv_result', methods=['GET'])
+# this function return base html page
+@app.route('/get_base_html', methods=['GET'])
 def display_result():
-    try:
-        util2.return_table()
-        return render_template("page2.html")
-    except:
-        return abort(404)
+    return render_template("page2.html")
 
 
+# this function return predicted csv in html table format
 @app.route('/get_table', methods=['GET'])
 def display_table():
     return util2.return_table()
 
 
+# it is use to send file that is used to downloaded
 @app.route('/download_file', methods=['POST'])
 def download_csv():
     try:
@@ -27,7 +26,8 @@ def download_csv():
         return abort(404)
 
 
+# it is use to delete unwanted file from Data folder
 @app.route('/delete_file', methods=['GET'])
 def delete_file():
     util2.delete_file()
-    return jsonify({'redirect': "/"})
+    return jsonify({'redirect': url_for("main_page")})
