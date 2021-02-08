@@ -13,7 +13,7 @@ ADD . /Banking_ML
 
 
 # Install dependencies
-RUN pip3 install -r requirement.txt
+RUN pip install -r requirement.txt
 
 
 # Run the application:
