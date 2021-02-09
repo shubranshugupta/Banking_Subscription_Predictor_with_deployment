@@ -78,4 +78,4 @@ def predict_csv():
 if __name__ == '__main__':
     client.config['TEMPLATES_AUTO_RELOAD'] = True
     util1.load_file()
-    client.run(host='0.0.0.0', port='300', debug=True)
+    client.run(host='0.0.0.0', debug=True)

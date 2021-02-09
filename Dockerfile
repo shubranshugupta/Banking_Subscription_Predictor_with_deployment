@@ -11,10 +11,9 @@ ENV PATH="VIRTUAL_ENV/bin:$PATH"
 WORKDIR /Banking_ML
 ADD . /Banking_ML
 
-
 # Install dependencies
 RUN pip install -r requirement.txt
 
-
 # Run the application:
 CMD [ "python3.8", "client.py" ]
+# CMD gunicorn --bind 0.0.0.0:$PORT client
