@@ -19,15 +19,17 @@ python client.py
 ```bash
 docker pull shubhgupta24/banking_subscription_predictor
 
-docker run -v '{Put you path to save data}':/Banking_ML/Data shubhgupta24/banking_subscription_predictor
+docker run -v '{Put your path to save data}':/Banking_ML/Data shubhgupta24/banking_subscription_predictor
 ```
 
-## Technology Used
+## 🔧 Technology Used
 
-1. Flask
-2. Catboost
-3. Docker
-4. Html
-5. CSS
-6. JS
-7. Heroku 
+![](https://img.shields.io/badge/Tools-Flask-informational?style=flat&logo=flask&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Tools-Catboost-informational?style=flat&logo=catboost&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Tools-Docker-informational?style=flat&logo=docker&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Tools-Heroku-informational?style=flat&logo=heroku&logoColor=white&color=2bbc8a)
+
+![](https://img.shields.io/badge/Code-Python-informational?style=flat&logo=python&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-Html-informational?style=flat&logo=html5&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-CSS-informational?style=flat&logo=css3&logoColor=white&color=2bbc8a)
+![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=javascript&logoColor=white&color=2bbc8a)
