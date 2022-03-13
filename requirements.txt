@@ -8,3 +8,4 @@ catboost==0.24.2
 xlrd==1.2.0
 openpyxl==3.0.5
 lxml==4.5.2
+itsdangerous==2.0.1
